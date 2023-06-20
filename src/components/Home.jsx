@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import desktopbg from '../assets/newbg.jpg'; 
 import mobilebg from '../assets/bgmobile.jpg'
 import { Link } from 'react-router-dom';
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs'
 
 const Home = () => {
   const [bgImageUrl, setBgImageUrl] = useState('');
@@ -71,13 +71,13 @@ const Home = () => {
 
       <div className='flex mt-6 space-x-4'>
       <a href="https://github.com/Kruthardh11" target="_blank" rel="noopener noreferrer">
-        <FaGithub className="text-gray-500 hover:text-gray-800 text-2xl" />
+        <BsGithub className="text-gray-500 hover:text-gray-800 text-2xl" />
       </a>
       <a href="https://www.instagram.com/karlsefni_11" target="_blank" rel="noopener noreferrer">
-        <FaInstagram className="text-gray-500 hover:text-gray-800 text-2xl" />
+        <BsInstagram className="text-gray-500 hover:text-gray-800 text-2xl" />
       </a>
       <a href="https://www.linkedin.com/in/kruthardh-tirunahari-bba216264/" target="_blank" rel="noopener noreferrer">
-        <FaLinkedin className="text-gray-500 hover:text-gray-800 text-2xl" />
+        <BsLinkedin className="text-gray-500 hover:text-gray-800 text-2xl" />
       </a>
       </div>
       </div>
@@ -127,13 +127,13 @@ const Home = () => {
 
 <div className='flex mt-6 space-x-4 '>
       <a href="https://github.com/Kruthardh11" target="_blank" rel="noopener noreferrer">
-        <FaGithub className="text-gray-500 hover:text-gray-800 text-2xl" />
+        <BsGithub className="text-gray-500 hover:text-gray-800 text-2xl" />
       </a>
       <a href="https://www.instagram.com/karlsefni_11" target="_blank" rel="noopener noreferrer">
-        <FaInstagram className="text-gray-500 hover:text-gray-800 text-2xl" />
+        <BsInstagram className="text-gray-500 hover:text-gray-800 text-2xl" />
       </a>
       <a href="https://www.linkedin.com/in/kruthardh-tirunahari-bba216264/" target="_blank" rel="noopener noreferrer">
-        <FaLinkedin className="text-gray-500 hover:text-gray-800 text-2xl" />
+        <BsLinkedin className="text-gray-500 hover:text-gray-800 text-2xl" />
       </a>
       </div>
 
