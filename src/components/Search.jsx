@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGlobalContext } from './context/global';
 import { Link } from 'react-router-dom';
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 
 const Search = () => {
   const { handleSubmit, search, searchAnime, handleChange, searchResults } =
@@ -8,24 +9,21 @@ const Search = () => {
 
   const renderResults = () => {
     if (searchResults) {
-      return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-          {searchResults.map((anime) => (
-            <div
-              key={anime.mal_id}
-              className="rounded-lg overflow-hidden shadow-md transition-transform duration-300 transform hover:scale-105 mt-4"
-            >
-              <Link to={`/anime/${anime.mal_id}`}>
-                <img
-                  src={anime.images.jpg.large_image_url}
-                  alt=""
-                  className="w-56 h-80"
-                />
-              </Link>
-            </div>
-          ))}
-        </div>
-      );
+      return searchResults?.map((anime) => {
+        return <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+        {searchResults.map((anime) => (
+          <div key={anime.mal_id} className="rounded-lg overflow-hidden  shadow-md transition-transform duration-300 transform hover:scale-105 mt-4">
+            <Link to={`/anime/${anime.mal_id}`}>
+              <img
+                src={anime.images.jpg.large_image_url}
+                alt=""
+                className="w-56 h-80"
+              />
+            </Link>
+          </div>
+        ))}
+      </div>      
+    })
     } else {
       return (
         <div className="flex items-center justify-center min-h-screen">
@@ -63,8 +61,14 @@ const Search = () => {
             </svg>
           </button>
         </form>
+        
       </div>
-      <div className="p-10">{renderResults()}</div>
+      <Link to='/'><BsFillArrowLeftCircleFill  className="h-10 w-10 mt-5 ml-4" /></Link>
+      <div className="container mx-auto px-6  py-10">
+        <div className="flex flex-wrap justify-center -mx-4">
+          {renderResults()}
+        </div>
+      </div>
     </div>
   );
 };

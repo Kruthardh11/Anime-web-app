@@ -36,7 +36,7 @@ const SecondHome = () => {
 
  
     return (
-        <div className='bg-gray-800 w-full'>
+        <div className='bg-gray-800 w-screen'>
                <div className="flex items-center justify-between px-4 py-2 ">
   <div>
     <h1 className="text-white text-xl font-bold">

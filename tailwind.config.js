@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'roboto-condensed': ['Roboto Condensed', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
       },
     },
   },
