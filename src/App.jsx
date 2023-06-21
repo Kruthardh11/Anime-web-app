@@ -14,7 +14,7 @@ import Search from './components/Search';
 function App() {
 
   return (
-      <div  >
+      <div className='' >
        <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>

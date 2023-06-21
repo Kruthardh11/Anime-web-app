@@ -5,6 +5,8 @@ import Upcoming from './Upcoming.jsx'
 import Airing from './Airing.jsx'
 import { Link } from 'react-router-dom'
 import { BiArrowBack } from "react-icons/bi";
+import { FiMenu } from 'react-icons/fi';
+
 
 
 const SecondHome = () => {
@@ -20,6 +22,11 @@ const SecondHome = () => {
     } = useGlobalContext()
 
     const [rendered, setRendered] = useState('popular')
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+      setIsOpen(!isOpen);
+    };
 
     const switchComponent = () => {
         switch(rendered){
@@ -37,16 +44,16 @@ const SecondHome = () => {
  
     return (
         <div className='bg-gray-800 w-screen'>
-               <div className="flex items-center justify-between px-4 py-2 ">
-  <div>
-    <h1 className="text-white text-xl font-bold">
+               <div className="flex flex-col items-center justify-between sm:px-4 sm:py-2 ">
+         <div>
+    <h1 className="text-white text-xl font-bold my-3 font-sans">
       {rendered === 'popular' ? 'Popular Anime' :
       rendered === 'airing' ? 'Airing Anime' : 'Top Anime'}
     </h1>
-    <Link to='/' className='flex'><BiArrowBack className='bg-white m-3'/> <h1 className='text-white m-2'>Back Home</h1></Link>
+    <Link to='/' className='flex my-3'><BiArrowBack className='bg-white m-3'/> <h1 className='text-white m-2'>Back Home</h1></Link>
   </div>
-  <div className="flex items-center">
-    <div className="relative">
+  <div className="flex flex-col items-center ">
+    <div className="relative my-3">
         <form action='' onSubmit={handleSubmit} >
       <input
         type="text"
@@ -73,45 +80,58 @@ const SecondHome = () => {
       </button>
       </form>
     </div>
-    <div className="ml-4">
-      <button
-        onClick={() => {
-          setRendered('popular');
-        }}
-        className={`m-2 text-white ${
-          rendered === 'popular' ? 'font-bold' : ''
-        }`}
-      >
-        Popular
-      </button>
-      <button
-        onClick={() => {
-          setRendered('airing');
-          getAiringAnime();
-        }}
-        className={`m-2 text-white ${
-          rendered === 'airing' ? 'font-bold' : ''
-        }`}
-      >
-        Airing
-      </button>
-      <button
-        onClick={() => {
-          setRendered('upcoming');
-          getUpcomingAnime();
-        }}
-        className={`m-2 text-white ${
-          rendered === 'upcoming' ? 'font-bold' : ''
-        }`}
-      >
-        Top 
-      </button>
-    </div>
+    <div className="m-4">
+          <FiMenu
+            className="text-white cursor-pointer"
+            onClick={toggleMenu}
+          />
+        </div>
+      </div>
+      {isOpen && (
+        <div className="fixed inset-0 bg-gray-800 z-50">
+          <div className="container mx-auto px-6 py-10">
+            <div className="flex flex-col items-center">
+              <button
+                onClick={() => {
+                  setRendered('popular');
+                  toggleMenu();
+                }}
+                className={`m-2 text-white ${
+                  rendered === 'popular' ? 'font-bold' : ''
+                }`}
+              > Popular
+              </button>
+              <button
+                onClick={() => {
+                  setRendered('airing');
+                  getAiringAnime();
+                  toggleMenu();
+                }}
+                className={`m-2 text-white ${
+                  rendered === 'airing' ? 'font-bold' : ''
+                }`}
+              >
+                Airing
+              </button>
+              <button
+                onClick={() => {
+                  setRendered('upcoming');
+                  getUpcomingAnime();
+                  toggleMenu();
+                }}
+                className={`m-2 text-white ${
+                  rendered === 'upcoming' ? 'font-bold' : ''
+                }`}
+              >Top
+              </button>
+            </div>
+          </div>
+        </div>)}
   </div>
+  {switchComponent()}
 </div>
-
-            {switchComponent()}
-        </div >
+            
+       
     )
 }
 

@@ -34,7 +34,7 @@ const Popular = ({ rendered }) => {
   };
 //searchResults
   return (
-    <div className='bg-gray-700'>
+    <div className='bg-gray-700 '>
      
       <div className="container mx-auto px-6  py-10">
         <div className="flex flex-wrap justify-center -mx-4">

@@ -148,6 +148,7 @@ const Home = () => {
       </div>
 
           </div>
+          <p className='text-md text-gray-400'>~by kruthardh</p>
         </div>
 
 
