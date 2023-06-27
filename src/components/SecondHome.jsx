@@ -6,6 +6,8 @@ import Airing from './Airing.jsx'
 import { Link } from 'react-router-dom'
 import { BiArrowBack } from "react-icons/bi";
 import { FiMenu } from 'react-icons/fi';
+import { BsFillHeartFill, BsHeartFill } from "react-icons/bs";
+
 
 
 
@@ -51,6 +53,7 @@ const SecondHome = () => {
       rendered === 'airing' ? 'Airing Anime' : 'Top Anime'}
     </h1>
     <Link to='/' className='flex my-3'><BiArrowBack className='bg-white m-3'/> <h1 className='text-white m-2'>Back Home</h1></Link>
+    <Link to='/favoriteanime' className='flex my-3'><BsHeartFill className=' w-5 h-5 m-3'/> <h1 className='text-white m-2'>Favorites</h1></Link>
   </div>
   <div className="flex flex-col items-center ">
     <div className="relative my-3">
@@ -124,6 +127,7 @@ const SecondHome = () => {
                 }`}
               >Top
               </button>
+              <button></button>
             </div>
           </div>
         </div>)}

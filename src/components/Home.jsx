@@ -55,7 +55,7 @@ const Home = () => {
       <div className='hidden sm:flex pl-[5%] pt-[5%]'>
         
       <div className='flex flex-col font-bold mt-[100%]  sm:mb-[5%] sm:mt-[10%] '>
-{  user &&    <div className='text-white border-b-2 border-white mb-[10%] '><p className='font-extrabold '>User : </p> {user.displayName} </div>
+{  user &&    <div className='text-white border-b-2 border-white mb-[10%] font-martian'><p className='font-extrabold '>User : </p> {user.displayName} </div>
 }         
  <p className=' text-yellow-300 mb-[12%] font-bold text-lg'>Explore  anime </p>
         <Link to='/getstarted'>
@@ -160,7 +160,7 @@ const Home = () => {
   <span class="relative invisible"> Text</span>
 </a></Link>
 <Link to='/searchanime'>
-        <a  class="relative mt-[19%] inline-flex items-center justify-center p-4 px-10 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-yellow-500 rounded-full shadow-md group  ">
+        <a  class="relative mt-[19%] inline-flex items-center justify-center p-4 px-12 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-yellow-500 rounded-full shadow-md group  ">
   <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-yellow-500 group-hover:translate-x-0 ease">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -169,6 +169,17 @@ const Home = () => {
   <span class="absolute flex items-center justify-center w-full h-full text-yellow-500 transition-all duration-300 transform group-hover:translate-x-full ease">Search Anime</span>
   <span class="relative invisible"> Text</span>
 </a></Link>
+<div>
+{user ? (
+    <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={logOut}>
+      Logout
+    </button>
+  ) : (
+    <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={sign}>
+      Login
+    </button>
+  )}
+  </div>
 
 <div className='flex mt-6 space-x-4 '>
       <a href="https://github.com/Kruthardh11" target="_blank" rel="noopener noreferrer">

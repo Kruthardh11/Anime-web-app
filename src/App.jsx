@@ -8,6 +8,7 @@ import Airing from './components/Airing';
 import Upcoming from './components/Upcoming';
 import CharacterCard from './components/CharacterCard';
 import Search from './components/Search';
+import FavAnime from './components/FavAnime';
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/airing' element={ <Airing/> }></Route>
         <Route path='/upcoming' element={ <Upcoming/> }></Route>
         <Route path='/character/:id' element={ <CharacterCard/> }></Route>
+        <Route path='/favoriteanime' element={ <FavAnime/> }></Route>
       </Routes>
       </BrowserRouter>
       </div>

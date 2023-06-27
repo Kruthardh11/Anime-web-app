@@ -11,6 +11,12 @@ const Animeitem = () => {
     const [userid] = useAuthState(Auth);
      
     const [isLiked, setIsLiked] = useState(false);
+
+    let current_user;
+    if (userid) {
+      current_user = userid.displayName;
+  }
+
     
 
     const [anime, setAnime] = useState({})
@@ -33,14 +39,13 @@ const Animeitem = () => {
         trailer,duration,aired, 
         season, images, rank, 
         score,scored_by, popularity, 
-        status, rating, source } = anime
+        status, rating, source } = anime;
 
     //FETCHING CHARACTERS
     const getCharacters = async (anime) => {
         const response = await fetch(`https://api.jikan.moe/v4/anime/${anime}/characters`)
         const data = await response.json()
         setCharacters(data.data)
-       
     }
 
     const compare =() =>{
@@ -61,6 +66,8 @@ const Animeitem = () => {
           console.log("fuck off")
         }
       })
+      console.log(imageUpload);
+      console.log(title);
     }
 
     const fetchLikeData =async()=> {
@@ -71,13 +78,18 @@ const Animeitem = () => {
         console.log(details)
         //compare();
     }
+
+    const imageUpload = images?.jpg.large_image_url;
+    const titleUpload = title;
    
     const handleLike = async () => {
       try {
         const likeData = {
           like: true,
           user: current_user,
-          malid: id
+          malid: id,
+          image: imageUpload,
+          Title: titleUpload
         };
   
         await addDoc(postRef, likeData);
@@ -101,11 +113,13 @@ const Animeitem = () => {
         getCharacters(id)
         fetchLikeData();
         compare();
+        let current_user;
+      
     }, [])
 
   return (
     <div className='bg-gray-700'>
-      <div className='flex items-center justify-center p-10 '>
+      <div className='flex items-center justify-center p-10 py-2'>
       <a href="/getstarted" class="relative rounded px-5 py-2.5 overflow-hidden group bg-cyan-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
 <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
 <span class="relative">Back</span>
