@@ -135,6 +135,8 @@ const Home = () => {
         <div className='sm:hidden flex flex-col'> 
           <div className='text-yellow-300 flex flex-col p-12 text-2xl font-montserrat'>
             Dive into the captivating world of anime. All at one place, here!!
+            {  user &&    <div className='text-white border-b-2 border-gray-200 mb-[10%] font-martian text-sm mt-5'>User :  {user.displayName} </div>
+} 
           </div>
           <div className='mt-[100%]  flex flex-col items-center'>
           <p className=' text-yellow-300  font-bold text-lg'>Explore  anime </p>
@@ -169,7 +171,7 @@ const Home = () => {
   <span class="absolute flex items-center justify-center w-full h-full text-yellow-500 transition-all duration-300 transform group-hover:translate-x-full ease">Search Anime</span>
   <span class="relative invisible"> Text</span>
 </a></Link>
-<div>
+<div className='mt-5'>
 {user ? (
     <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={logOut}>
       Logout
@@ -196,10 +198,6 @@ const Home = () => {
           </div>
           <p className='text-md text-gray-400'>~by kruthardh</p>
         </div>
-
-
-
-     
     </div>
   );
 };
