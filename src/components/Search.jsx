@@ -34,7 +34,7 @@ const Search = () => {
   };
 
   return (
-    <div className="bg-gray-700">
+    <div className="bg-gray-700 ">
       <div className="relative p-5 border-4 border-yellow-400 rounded-lg">
         <form action="" onSubmit={handleSubmit}>
           <input
@@ -61,7 +61,6 @@ const Search = () => {
             </svg>
           </button>
         </form>
-        
       </div>
       <Link to='/'><BsFillArrowLeftCircleFill  className="h-10 w-10 mt-5 ml-4" /></Link>
       <div className="container mx-auto px-6  py-10">
